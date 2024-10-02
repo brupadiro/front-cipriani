@@ -81,8 +81,24 @@
   // Handle form submission
   const { register } = useStrapiAuth();
   const sendform = async function ($forms, formData) {
-    await register($forms.data);
-    navigateTo('/')
+    const token = useStrapiToken()
+    try {
+      await $fetch('https://complete-victory-b1ae57a058.strapiapp.com/api/users', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body: {
+          ...$forms.data,
+          role:1
+        }
+
+      });
+      navigateTo('/')
+    } catch (error) {
+      // Handle error, e.g., display an error message
+      console.error(error)
+    }
   };
   </script>
   

@@ -13,9 +13,12 @@
               <UInput type="password" v-model="form.password" placeholder="Contraseña" />
             </UFormGroup>
             <div>
-              <UButton type="submit" class="primary-button" block>
+              <UButton type="submit" class="primary-button" block :loading="isLoading">
                 Ingresar
               </UButton>
+            </div>
+            <div v-if="hasError" class="error-message">
+              Error al iniciar sesión. Por favor, verifica tus credenciales.
             </div>
           </UForm>
         </div>
@@ -29,17 +32,24 @@
     username: '',
     password: ''
   })
+  const isLoading = ref(false)
+  const hasError = ref(false)
   definePageMeta({
     layout: 'empty',
   })
 
   const router = useRouter()
   const handleSubmit = async () => {
+    isLoading.value = true
+    hasError.value = false
     try { 
       await login({ identifier: form.value.username, password: form.value.password })
       router.push('/')
     } catch (error) {
       console.error(error)
+      hasError.value = true
+    } finally {
+      isLoading.value = false
     }
   }
   </script>
@@ -56,6 +66,10 @@
     align-items: center;
     display: flex;
     justify-content: center;
+  }
+  .error-message {
+    color: red;
+    margin-top: 1rem;
   }
   /* Add any additional styles here */
   </style>

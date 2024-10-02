@@ -54,14 +54,14 @@
         </div>
         <template #footer>
           <div class="flex justify-end space-x-2">
-            <UButton class="primary-button" color="gray" @click="resetForm">Reiniciar</UButton>
-            <UButton class="primary-button" color="primary" @click="searchUsers">Buscar</UButton>
+            <UButton class="primary-button" color="white" @click="resetForm">Reiniciar</UButton>
+            <UButton class="primary-button" color="white" @click="searchUsers">Buscar</UButton>
           </div>
         </template>
       </UCard>
 
       <UCard class="mt-4 card">
-        <UButton color="primary" icon="i-heroicons-plus" to="/admin/create">
+        <UButton color="primary" icon=" mdi mdi-person" to="/admin/create">
         Agregar
       </UButton>
 
@@ -71,6 +71,12 @@
       { key: 'status', label: 'Estatus' },
       { key: 'actions', label: 'Acciones' }
     ]" :rows="users">
+        <template #status-data="{ row }">
+          <div class="flex align-center justify-center">
+            <span v-if="row.blocked" class="mdi mdi-close text-red-500"></span>
+            <span v-else class="mdi mdi-check text-green-500"></span>
+          </div>
+        </template>
         <template #actions-data="{ row }">
           <div class="flex space-x-2">
             <UButton color="gray" icon="i-heroicons-trash" size="sm" />

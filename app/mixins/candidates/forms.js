@@ -21,7 +21,7 @@ export default function useCandidateForms() {
         columns: columnDefinition,
       },
       pais: {
-        type: "email",
+        type: "text",
         label: "País de residencia actual",
         columns: columnDefinition,
       },
@@ -59,7 +59,7 @@ export default function useCandidateForms() {
           },
         ],
         columns: {
-          md: 12,
+          md: 6,
           sm: 12,
         },
       },
