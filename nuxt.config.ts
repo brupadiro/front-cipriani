@@ -1,10 +1,24 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import Aura from '@primevue/themes/aura';
+
+
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/strapi', '@nuxt/eslint', '@nuxt/fonts', '@nuxt/ui', '@vueuse/nuxt', '@vueform/nuxt'],
-  extends: ["@nuxt/ui-pro"],
+  modules: ['@primevue/nuxt-module', '@nuxtjs/strapi', '@nuxt/eslint', '@nuxt/fonts', '@nuxt/ui', '@vueuse/nuxt', '@vueform/nuxt'],
+  primevue: {
+    options: {
+        theme: {
+          preset: Aura,
+          options: {
+              prefix: 'p',
+              darkModeSelector: 'system',
+              cssLayer: false
+          }
+          }
+    }
+  },
   ssr: false,
   strapi: {
-    url: process.env.STRAPI_URL || 'http://localhost:1337',
+    url: 'https://complete-victory-b1ae57a058.strapiapp.com',
     prefix: '/api',
     version: 'v4',
     cookie: {

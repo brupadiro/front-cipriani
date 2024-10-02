@@ -17,7 +17,6 @@ const state = reactive({
   password_new: ''
 })
 
-const toast = useToast()
 
 function validate(state: any): FormError[] {
   const errors = []

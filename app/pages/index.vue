@@ -60,7 +60,7 @@
         </template>
       </UCard>
 
-      <UCard class="mt-4">
+      <UCard class="mt-4 card">
         <UButton color="primary" icon="i-heroicons-plus" to="/admin/create">
         Agregar
       </UButton>
