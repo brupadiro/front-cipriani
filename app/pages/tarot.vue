@@ -1,6 +1,5 @@
 <template>
   <div class="min-h-screen bg-gray-900 text-white p-4 sm:p-8 overflow-hidden">
-    <h1 class="text-3xl sm:text-4xl font-bold text-center mb-4 sm:mb-8">Tarot Card Selection</h1>
     
     <!-- Selected Cards List -->
     <transition-group 
@@ -55,6 +54,9 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
 import { XIcon } from 'lucide-vue-next'
+definePageMeta({
+    layout:'empty'
+  })
 
 const tarotCards = ref([
   { id: 0, name: 'The Fool', symbol: '🃏', meaning: 'New beginnings, innocence', selected: false, flying: true },

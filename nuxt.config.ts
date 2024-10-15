@@ -10,7 +10,7 @@ export default defineNuxtConfig({
           preset: Aura,
           options: {
               prefix: 'p',
-              darkModeSelector: 'system',
+              darkModeSelector: false || 'none',
               cssLayer: false
           }
           }
@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   },
   ssr: false,
   strapi: {
-    url: 'https://complete-victory-b1ae57a058.strapiapp.com',
+    url: 'http://localhost:1337',
     prefix: '/api',
     version: 'v4',
     cookie: {

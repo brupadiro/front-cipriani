@@ -1,10 +1,17 @@
 <template>
   <UDashboardPage>
     <UDashboardPanel grow>
-      <UDashboardNavbar class="primary navbar" :title="$route.params.type === 'empleados' ? 'Empleados' : 'Candidatos'" />
-
+      <UDashboardNavbar class="primary navbar" :title="$route.params.type === 'empleados' ? 'Empleados' : 'Candidatos'">
+      </UDashboardNavbar>
       <UDashboardPanelContent>
         <UCard class="card mb-4">
+            <template #header>
+              <div class="flex justify-end items-end">
+                <UButton color="primary" variant="solid" size="sm" :to="`/workers/${$route.params.type}/jobs`">
+                  Puestos de trabajo
+                </UButton>
+              </div>
+            </template>
           <UForm :validate-on="['submit']" :state="filters" class="space-y-4" @submit.prevent="onSubmit">
             <div class="vf-row">
               <UFormGroup 

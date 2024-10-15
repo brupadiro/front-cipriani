@@ -6,12 +6,12 @@
           <Image src="/logo.svg" alt="Cipriani Logo" class="logo" />
         </template>
         <template #submenulabel="{ item }">
-          <span class="text-primary font-bold">{{ item.label }}</span>
+          <span class="text-primary font-bold text-sm">{{ item.label }}</span>
         </template>
         <template #item="{ item, props }">
           <a v-ripple class="flex items-center p-menuitem-link" v-bind="props.action">
             <span :class="item.icon" class="text-link" /> 
-            <span class="text-link font-bold">{{ item.label }}</span>
+            <span class="text-link font-semibold text-sm">{{ item.label }}</span>
             <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
             <span v-if="item.shortcut"
               class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
@@ -53,6 +53,16 @@
       label: 'Empleados',
       icon: 'pi pi-fw pi-calendar',
       command: () => router.push('/workers/empleados')
+    },
+    {
+      label: 'Proyectos',
+      icon: 'pi pi-fw pi-briefcase',
+      command: () => router.push('/projects')
+    },
+    {
+      label: 'Gestion de horas',
+      icon: 'pi pi-fw pi-calendar',
+      command: () => router.push('/hourmanagement')
     },
     {
       label: 'Calendario',

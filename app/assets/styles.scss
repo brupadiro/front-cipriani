@@ -83,7 +83,7 @@ input,select{
   .p-menu-list{
     margin-top: 30px!important;
   }
-  [type="text"],select, textarea, [type="password"], [type="email"], [type="number"], [type="tel"], [type="search"], [type="url"], [type="date"] {
+  [type="text"],select, textarea,.p-select, [type="password"], [type="email"], [type="number"], [type="tel"], [type="search"], [type="url"], [type="date"] {
     background: #efeff4!important;
     border-radius: 40px !important;
     padding: 10px!important;
